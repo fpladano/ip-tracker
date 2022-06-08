@@ -2,6 +2,7 @@ import { Button, Flex, FormControl, Heading, Input } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Details from './Details';
 import SearchBar from './SearchBar';
+import { DetailsProvider } from './DetailsProvider';
 
 function Header() {
   return (
@@ -17,8 +18,10 @@ function Header() {
       <Heading size="lg" color="white" as="h1" mb="6" textAlign="center">
         IP Address Tracker
       </Heading>
-      <SearchBar />
-      <Details />
+      <DetailsProvider>
+        <SearchBar />
+        <Details />
+      </DetailsProvider>
     </Flex>
   );
 }
