@@ -18,10 +18,8 @@ function Header() {
       <Heading size="lg" color="white" as="h1" mb="6" textAlign="center">
         IP Address Tracker
       </Heading>
-      <DetailsProvider>
-        <SearchBar />
-        <Details />
-      </DetailsProvider>
+      <SearchBar />
+      <Details />
     </Flex>
   );
 }

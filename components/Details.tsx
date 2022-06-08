@@ -1,8 +1,11 @@
 import { SimpleGrid } from '@chakra-ui/react';
 import React from 'react';
 import DetailsItem from './DetailsItem';
+import { useDetailsContext } from './DetailsProvider';
 
 function Details() {
+  const context = useDetailsContext();
+
   return (
     <SimpleGrid
       zIndex="modal"
@@ -19,10 +22,20 @@ function Details() {
       spacingY="5"
       gridGap="1"
     >
-      <DetailsItem title="IP Address" data="123.123.123.123" />
-      <DetailsItem title="Location" data="Brooklyng, NY, 10000" />
-      <DetailsItem title="Time Zone" data="123.123.123.123" />
-      <DetailsItem title="ISP" data="123.123.123.123" noBorder={true} />
+      <DetailsItem title="IP Address" data={context?.detailsData.ip} />
+      <DetailsItem
+        title="Location"
+        data={`${context?.detailsData.location.city}, ${context?.detailsData.location.region} ${context?.detailsData.location.postalCode}`}
+      />
+      <DetailsItem
+        title="Time Zone"
+        data={`UTC ${context?.detailsData.location.timezone}`}
+      />
+      <DetailsItem
+        title="ISP"
+        data={`${context?.detailsData.isp}`}
+        noBorder={true}
+      />
     </SimpleGrid>
   );
 }

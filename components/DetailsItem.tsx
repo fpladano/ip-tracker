@@ -3,14 +3,14 @@ import React from 'react';
 
 interface Props {
   title: string;
-  data: string;
+  data: string | undefined;
   noBorder?: boolean;
 }
 
 function DetailsItem({ title, data, noBorder }: Props) {
   return (
     <Container
-      textAlign={{ sm: 'center', md: 'left' }}
+      textAlign={{ base: 'center', md: 'left' }}
       borderRight={noBorder ? { md: '0' } : { md: '1px' }}
       borderColor={{ md: 'gray.300' }}
     >
